@@ -36,7 +36,3 @@ pip install -r requirements.txt
 ```bash
 python assistant.py
 ```
-
-## Requirements for Usage
-create a config.py file in the assistant.py directory and paste the following:
-OPENAI_API_KEY = 'your-api-key-here'
