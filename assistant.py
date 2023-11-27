@@ -18,7 +18,7 @@ class GokuAssistant:
         self.root.title("Goku Voice Assistant")
 
         # Load background image
-        background_image = Image.open("C:/Users/Julijan/Documents/CIS 150/FinalProject/pic/background.jpg")
+        background_image = Image.open("C:/Users/Julijan/Documents/CIS 150/FinalProject/CIS-150-Final-Project/pic/background.jpg")
         background_image = background_image.resize((root.winfo_screenwidth(), root.winfo_screenheight()))
         self.background_photo = ImageTk.PhotoImage(background_image)
 
@@ -79,7 +79,7 @@ class GokuAssistant:
 
     def start_recording(self):
         self.recording = True
-        self.record_button.config(text="Stop Recording", state=tk.DISABLED)  # Disable the button
+        self.record_button.config(text="Listening", state=tk.DISABLED)  # Disable the button
         self.text_area.delete(1.0, tk.END)  # Clear previous text
 
         # Start a new thread for recording
@@ -105,7 +105,7 @@ class GokuAssistant:
             try:
                 while self.recording:
                     # Adjust the timeout and phrase_time_limit parameters
-                    audio_data = self.recognizer.listen(source, timeout=20, phrase_time_limit=3)
+                    audio_data = self.recognizer.listen(source, timeout=15, phrase_time_limit=5)
                     text = self.recognizer.recognize_google(audio_data)
                     self.text_area.insert(tk.END, text + "\n")
                     self.text_area.yview(tk.END)
